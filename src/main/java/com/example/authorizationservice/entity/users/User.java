@@ -1,10 +1,8 @@
 package com.example.authorizationservice.entity.users;
 
+import com.example.authorizationservice.entity.Role;
 import com.example.authorizationservice.entity.enums.StatusUser;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.Data;
 
 @Data
@@ -20,4 +18,6 @@ public abstract class User {
     private String email;
     private String password;
     private StatusUser status;
+    @ManyToOne
+    private Role role;
 }

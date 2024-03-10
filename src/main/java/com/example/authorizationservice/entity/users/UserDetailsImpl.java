@@ -1,12 +1,15 @@
 package com.example.authorizationservice.entity.users;
 
+import com.example.authorizationservice.entity.Role;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import java.util.Collection;
+import java.util.Collections;
 
 @Data
 @AllArgsConstructor
@@ -34,7 +37,10 @@ public class UserDetailsImpl implements UserDetails {
     public boolean isEnabled() {
         return true;
     }
-    public UserDetailsImpl getUserDetailsByUsers(Admin admin){
-        return new UserDetailsImpl(admin.getId(), admin.getEmail(), admin.getName(), admin.getPassword(), null);
+    public UserDetailsImpl getUserDetailsByUsers(User user){
+        return new UserDetailsImpl(user.getId(), user.getEmail(), user.getName(), user.getPassword(),getAuthorities(user.getRole()));
+    }
+    private Collection<? extends GrantedAuthority> getAuthorities(Role role) {
+        return Collections.singleton(new SimpleGrantedAuthority(role.getName()));
     }
 }
