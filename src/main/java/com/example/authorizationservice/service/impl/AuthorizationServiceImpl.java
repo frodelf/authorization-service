@@ -1,6 +1,5 @@
 package com.example.authorizationservice.service.impl;
 
-import com.example.authorizationservice.entity.Role;
 import com.example.authorizationservice.entity.users.User;
 import com.example.authorizationservice.jwt.JwtRequest;
 import com.example.authorizationservice.jwt.JwtResponse;
