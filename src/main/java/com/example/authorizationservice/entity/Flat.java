@@ -24,6 +24,7 @@ public class Flat {
     private String description;
     private String reason;
     private Integer price;
+    private Integer floor;
     private LocalDate updatedDate;
 
     private StatusState statusState;

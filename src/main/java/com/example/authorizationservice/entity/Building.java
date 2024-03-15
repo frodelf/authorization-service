@@ -18,6 +18,7 @@ public class Building {
     private String address;
     private Integer minPrice;
     private Integer pricePerSquareMeter;
+    private Integer numberOfFloors;
     private Integer minArea;
     private Integer maxArea;
     private String distanceToSea;
