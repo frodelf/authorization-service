@@ -15,19 +15,26 @@ public class UserServiceImpl implements UserService {
     private final UserRepository userRepository;
     @Override
     public User getById(Long userId) {
-        return userRepository.findById(userId).orElseThrow(
+        log.info("UserServiceImpl-getById start");
+        User user = userRepository.findById(userId).orElseThrow(
                 () -> {
                     log.error("User with id={} not found", userId);
                     return new EntityNotFoundException("User with id=" + userId + " not found");
                 }
         );
+        log.info("UserServiceImpl-getById finish");
+        return user;
     }
     @Override
     public User getByEmail(String email) {
-        return userRepository.findByEmail(email).orElseThrow(
+        log.info("UserServiceImpl-getByEmail start");
+        User user = userRepository.findByEmail(email).orElseThrow(
                 () -> {
                     log.error("User with email={} not found", email);
                     return new EntityNotFoundException("User with email=" + email + " not found");
                 }
-        );    }
+        );
+        log.info("UserServiceImpl-getByEmail finish");
+        return user;
+    }
 }
