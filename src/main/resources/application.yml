@@ -4,7 +4,7 @@ spring:
   application:
     name: auth
   datasource:
-    url: jdbc:mysql://localhost:3306/househub
+    url: jdbc:mysql://localhost:3306/househub_user
     username: root
     password: 1234
     driver-class-name: com.mysql.cj.jdbc.Driver

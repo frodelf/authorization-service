@@ -1,9 +1,8 @@
 package com.example.authorizationservice.entity.users;
 
-import com.example.authorizationservice.entity.Flat;
+import jakarta.persistence.ElementCollection;
 import jakarta.persistence.Entity;
 import jakarta.persistence.ManyToMany;
-import jakarta.persistence.OneToMany;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
@@ -12,9 +11,9 @@ import java.util.List;
 @EqualsAndHashCode(callSuper = true)
 @Entity
 @Data
-public class Notary extends User{
-    @OneToMany(mappedBy = "notary")
-    private List<Flat> flat;
+public class Notary extends User {
+    @ElementCollection
+    private List<Long> flat;
     @ManyToMany(mappedBy = "notaries")
     private List<Consumer> consumer;
 }
