@@ -14,10 +14,10 @@ spring:
       ddl-auto: update
 eureka:
   instance:
-    hostname: slj_househub_eureka_server_dd
+    hostname: eurekaserver
   client:
     service-url:
-      defaultZone: http://slj_househub_eureka_server_dd:47073/eureka
+      defaultZone: http://eurekaserver:47073/eureka
 security:
   jwt:
     access: 36000000
