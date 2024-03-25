@@ -18,7 +18,7 @@ jobs:
       - name: Build app
         run: |
           gradle clean
-          gradle build
+          gradlew assemble -x test
       - name: Build Docker
         uses: docker/build-push-action@v2
         with:
