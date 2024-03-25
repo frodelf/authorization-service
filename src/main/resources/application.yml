@@ -4,7 +4,7 @@ spring:
   application:
     name: auth
   datasource:
-    url: jdbc:mysql://localhost:3306/househub_user
+    url: jdbc:mysql://slj_househub_mysql_dd:3306/househub_user
     username: root
     password: 1234
     driver-class-name: com.mysql.cj.jdbc.Driver
@@ -14,10 +14,10 @@ spring:
       ddl-auto: update
 eureka:
   instance:
-    hostname: localhost
+    hostname: slj_househub_eureka_server_dd
   client:
     service-url:
-      defaultZone: http://localhost:47073/eureka
+      defaultZone: http://slj_househub_eureka_server_dd:47073/eureka
 security:
   jwt:
     access: 36000000
