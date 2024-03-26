@@ -3,15 +3,6 @@ server:
 spring:
   application:
     name: auth
-  datasource:
-    url: jdbc:mysql://slj_househub_mysql_dd:3306/househub_user
-    username: root
-    password: 1234
-    driver-class-name: com.mysql.cj.jdbc.Driver
-  jpa:
-    show-sql: true
-    hibernate:
-      ddl-auto: update
 eureka:
   instance:
     hostname: auth-service

@@ -1,6 +1,5 @@
-package com.example.authorizationservice.entity.users;
+package com.example.authorizationservice.entity;
 
-import com.example.authorizationservice.entity.Role;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;

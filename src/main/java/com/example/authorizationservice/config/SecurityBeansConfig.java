@@ -1,7 +1,7 @@
 package com.example.authorizationservice.config;
 
-import com.example.authorizationservice.entity.users.UserDetailsImpl;
-import com.example.authorizationservice.service.UserService;
+import com.example.authorizationservice.service.client.UserService;
+import com.example.authorizationservice.entity.UserDetailsImpl;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -16,10 +16,9 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 @EnableWebSecurity
 @RequiredArgsConstructor
 public class SecurityBeansConfig {
-    private final UserService userService;
     @Bean
     public UserDetailsService userDetailsService() {
-        return username -> new UserDetailsImpl().getUserDetailsByUsers(userService.getByEmail(username));
+        return username -> new UserDetailsImpl().getUserDetailsByUsers(UserService.getByEmail(username));
     }
     @Bean
     public PasswordEncoder passwordEncoder() {

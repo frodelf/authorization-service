@@ -1,9 +1,9 @@
 package com.example.authorizationservice.jwt;
 
+import com.example.authorizationservice.service.client.UserService;
 import com.example.authorizationservice.entity.Role;
-import com.example.authorizationservice.entity.users.User;
+import com.example.authorizationservice.entity.User;
 import com.example.authorizationservice.exception.InvalidTokenException;
-import com.example.authorizationservice.service.UserService;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jws;
 import io.jsonwebtoken.Jwts;
@@ -20,7 +20,6 @@ import java.util.Date;
 public class JwtTokenProvider {
 
     private final JwtProperties jwtProperties;
-    private final UserService userService;
     private Key key;
 
     @PostConstruct
@@ -61,7 +60,7 @@ public class JwtTokenProvider {
             throw new InvalidTokenException("The refresh token is not correct!");
         }
         Long userId = Long.valueOf(getId(refreshToken));
-        User user = userService.getById(userId);
+        User user = UserService.getById(userId);
         Role role=null;
         if(user.getRole()!=null){
             role=user.getRole();

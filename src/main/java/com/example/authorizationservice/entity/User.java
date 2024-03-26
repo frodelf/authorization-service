@@ -1,15 +1,10 @@
-package com.example.authorizationservice.entity.users;
+package com.example.authorizationservice.entity;
 
-import com.example.authorizationservice.entity.Role;
 import com.example.authorizationservice.entity.enums.StatusUser;
-import jakarta.persistence.*;
 import lombok.Data;
 
 @Data
-@Entity
-public abstract class User {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+public class User {
     private Long id;
     private String image;
     private String name;
@@ -18,6 +13,5 @@ public abstract class User {
     private String email;
     private String password;
     private StatusUser status;
-    @ManyToOne
     private Role role;
 }
