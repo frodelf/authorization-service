@@ -14,8 +14,7 @@ import java.util.Map;
 
 @Log4j2
 public class UserService {
-//    private final static String URL = "http://user-service:47076/api/v1/user";
-    private final static String URL = "http://localhost:47076/api/v1/user";
+    private final static String URL = "http://user-service:47076/api/v1/user";
     public static User getById(Long userId) {
         log.info("UserService-getById start");
         RestTemplate restTemplate = new RestTemplate();
